@@ -4,3 +4,6 @@ export const NULL = 'NULL';
 export const ADD_NAME = 'ADD_NAME';
 export const REMOVE_LAST_NAME = 'REMOVE_LAST_NAME';
 export const ADD_USERNAME = 'ADD_USERNAME';
+export const ADD_TODO = 'ADD_TODO';
+export const REMOVE_TODO = 'REMOVE_TODO';
+export const TOGGLE_TODO = 'TOGGLE_TODO';

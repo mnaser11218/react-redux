@@ -38,3 +38,19 @@ export const addUsernameAction = (username) => {
       payload: username
     };
   }
+
+export const addTodoAction = (todo) => {
+    return {
+      type: actionTypes.ADD_TODO,
+      payload: todo
+    };
+  }
+
+  export const removeTodoAction = (id) => {
+    return {
+      type: actionTypes.REMOVE_TODO,
+      payload: id
+    };
+  }
+
+

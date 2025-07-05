@@ -27,6 +27,20 @@ class Container1 extends React.Component {
         <button onClick={() => this.props.addName(this.nameInput.value)}>Add Name</button>
       <button onClick={()=> this.props.removeLastName()} >Remove Last Name</button>
         {this.props.names.map(name => <div key={name}>{name}</div>)}
+
+        <div>
+          Todos:
+          {/* This is where you can add your Todo component or list */}
+          <ul>
+            {this.props.todos.map(todo => (
+              <li key={todo.id}>
+                {todo.title}
+              {console.log(todo.id) /* Debugging log to check todo id */}
+                <button onClick={() => this.props.removeTodo(todo.id)}>Remove</button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
@@ -37,7 +51,8 @@ class Container1 extends React.Component {
 function mapStateToProps(state) {
   return {
     stateprop1: state.root.stateprop1,
-    names: state.root.names
+    names: state.root.names,
+    todos: state.todo // Assuming you have a todo reducer that manages todos
   };
 }
 
@@ -48,7 +63,9 @@ function mapDispatchToProps(dispatch) {
     onFailure: () => dispatch(actions.failureAction()),
     onNull: () => dispatch(actions.nullAction()),
     addName: (name) => dispatch(actions.addNameAction(name)),
-    removeLastName: () => dispatch(actions.removeLastNameAction())
+    removeLastName: () => dispatch(actions.removeLastNameAction()),
+    removeTodo: (id) => dispatch(actions.removeTodoAction(id)),
+    addToDo: (todo) => dispatch(actions.addTodoAction(todo)),
   };
 }
 
