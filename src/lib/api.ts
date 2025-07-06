@@ -5,7 +5,7 @@ export interface Todo {
   title: string;
   completed: boolean;
 }
-export const fetchTodos = async () => {
+export const getTodos = async () => {
   const response = await fetch(BASE_URL);
   if (!response.ok) {
     throw new Error('Network response was not ok');
